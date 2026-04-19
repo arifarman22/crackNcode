@@ -35,7 +35,7 @@ export default function CheckoutPage() {
   return (
     <section className="section-padding">
       <AnimatedSection>
-        <h1 className="text-3xl font-bold mb-8"><span className="gradient-text">Checkout</span></h1>
+        <h1 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8"><span className="gradient-text">Checkout</span></h1>
       </AnimatedSection>
 
       <form onSubmit={handleCheckout}>

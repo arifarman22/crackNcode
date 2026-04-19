@@ -23,7 +23,7 @@ export default function AboutPage() {
           <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-brand-500/10 text-brand-400 border border-brand-500/20 mb-4">
             Our Story
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 sm:mb-6">
             We Are <span className="gradient-text">CrackNCode</span>
           </h1>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg">
@@ -40,7 +40,7 @@ export default function AboutPage() {
               <div className="w-12 h-12 rounded-2xl bg-brand-gradient flex items-center justify-center mb-4">
                 <Target size={22} className="text-white" />
               </div>
-              <h2 className="text-2xl font-bold mb-3">Our Mission</h2>
+              <h2 className="text-xl sm:text-2xl font-semibold mb-3">Our Mission</h2>
               <p className="text-gray-400">
                 To empower businesses and individuals with world-class digital solutions that drive growth, innovation, and lasting impact. We believe technology should be accessible, beautiful, and powerful.
               </p>
@@ -51,7 +51,7 @@ export default function AboutPage() {
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center mb-4">
                 <Eye size={22} className="text-white" />
               </div>
-              <h2 className="text-2xl font-bold mb-3">Our Vision</h2>
+              <h2 className="text-xl sm:text-2xl font-semibold mb-3">Our Vision</h2>
               <p className="text-gray-400">
                 To become the leading digital ecosystem where businesses find everything they need — services, products, education, and community — to succeed in the digital economy.
               </p>

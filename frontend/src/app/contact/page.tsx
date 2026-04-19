@@ -29,7 +29,7 @@ export default function ContactPage() {
         <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-brand-500/10 text-brand-400 border border-brand-500/20 mb-4">
           Contact
         </span>
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-4">
           Get In <span className="gradient-text">Touch</span>
         </h1>
         <p className="text-gray-400 max-w-xl mx-auto">Have a project in mind? Let&apos;s talk about it.</p>

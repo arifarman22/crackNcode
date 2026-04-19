@@ -15,7 +15,7 @@ export default function ServicesPage() {
           <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-brand-500/10 text-brand-400 border border-brand-500/20 mb-4">
             Pricing
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 sm:mb-6">
             Simple, Transparent <span className="gradient-text">Pricing</span>
           </h1>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg">
@@ -25,7 +25,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="section-padding !pt-0">
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {services.map((s, i) => (
             <AnimatedSection key={s.id} delay={i * 0.15}>
               <GlassCard
