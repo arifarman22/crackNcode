@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "build": "tsc",
+    "build": "npx prisma generate && tsc",
+    "vercel-build": "npx prisma generate",
     "start": "node dist/index.js",
     "db:generate": "npx prisma generate",
     "db:push": "npx prisma db push",
