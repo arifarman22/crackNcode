@@ -1,21 +1,18 @@
 import { Request, Response } from "express";
 import prisma from "../config/db";
 import { sendOrderConfirmation } from "../services/email";
+import { asyncHandler } from "../middleware/error";
 
-interface OrderItemInput {
-  productId: string;
-  quantity: number;
-}
+interface OrderItemInput { productId: string; quantity: number; }
 
 const paramId = (req: Request) => req.params.id as string;
 
-export const createOrder = async (req: Request, res: Response) => {
+export const createOrder = asyncHandler(async (req: Request, res: Response) => {
   const { items } = req.body as { items: OrderItemInput[] };
   const userId = req.user!.userId;
 
   const productIds = items.map((i) => i.productId);
   const products = await prisma.product.findMany({ where: { id: { in: productIds } } });
-
   const productMap = new Map(products.map((p: { id: string; price: number }) => [p.id, p]));
   let total = 0;
 
@@ -35,18 +32,18 @@ export const createOrder = async (req: Request, res: Response) => {
   if (user) sendOrderConfirmation(user.email, order.id, total).catch(console.error);
 
   res.status(201).json(order);
-};
+});
 
-export const getMyOrders = async (req: Request, res: Response) => {
+export const getMyOrders = asyncHandler(async (req: Request, res: Response) => {
   const orders = await prisma.order.findMany({
     where: { userId: req.user!.userId },
     include: { items: { include: { product: true } } },
     orderBy: { createdAt: "desc" },
   });
   res.json(orders);
-};
+});
 
-export const getOrder = async (req: Request, res: Response) => {
+export const getOrder = asyncHandler(async (req: Request, res: Response) => {
   const order = await prisma.order.findUnique({
     where: { id: paramId(req) },
     include: { items: { include: { product: true } }, user: { select: { id: true, name: true, email: true } } },
@@ -56,9 +53,9 @@ export const getOrder = async (req: Request, res: Response) => {
     res.status(403).json({ message: "Forbidden" }); return;
   }
   res.json(order);
-};
+});
 
-export const updateOrderStatus = async (req: Request, res: Response) => {
+export const updateOrderStatus = asyncHandler(async (req: Request, res: Response) => {
   const { status } = req.body;
   const order = await prisma.order.update({
     where: { id: paramId(req) },
@@ -66,17 +63,16 @@ export const updateOrderStatus = async (req: Request, res: Response) => {
     include: { items: { include: { product: true } } },
   });
   res.json(order);
-};
+});
 
-export const getAllOrders = async (req: Request, res: Response) => {
+export const getAllOrders = asyncHandler(async (req: Request, res: Response) => {
   const { status } = req.query;
   const where: Record<string, unknown> = {};
   if (status) where.status = String(status);
-
   const orders = await prisma.order.findMany({
     where,
     include: { user: { select: { id: true, name: true, email: true } }, items: true },
     orderBy: { createdAt: "desc" },
   });
   res.json(orders);
-};
+});

@@ -1,35 +1,38 @@
 import { Request, Response } from "express";
 import prisma from "../config/db";
+import { asyncHandler } from "../middleware/error";
 
-export const getPlans = async (_req: Request, res: Response) => {
+const paramId = (req: Request) => req.params.id as string;
+
+export const getPlans = asyncHandler(async (_req: Request, res: Response) => {
   const plans = await prisma.plan.findMany({ where: { active: true }, orderBy: { price: "asc" } });
   res.json(plans);
-};
+});
 
-export const createPlan = async (req: Request, res: Response) => {
+export const createPlan = asyncHandler(async (req: Request, res: Response) => {
   const plan = await prisma.plan.create({ data: req.body });
   res.status(201).json(plan);
-};
+});
 
-export const updatePlan = async (req: Request, res: Response) => {
-  const plan = await prisma.plan.update({ where: { id: req.params.id as string }, data: req.body });
+export const updatePlan = asyncHandler(async (req: Request, res: Response) => {
+  const plan = await prisma.plan.update({ where: { id: paramId(req) }, data: req.body });
   res.json(plan);
-};
+});
 
-export const deletePlan = async (req: Request, res: Response) => {
-  await prisma.plan.update({ where: { id: req.params.id as string }, data: { active: false } });
+export const deletePlan = asyncHandler(async (req: Request, res: Response) => {
+  await prisma.plan.update({ where: { id: paramId(req) }, data: { active: false } });
   res.json({ message: "Plan deleted" });
-};
+});
 
-export const getAllSubscriptions = async (_req: Request, res: Response) => {
+export const getAllSubscriptions = asyncHandler(async (_req: Request, res: Response) => {
   const subs = await prisma.subscription.findMany({
     include: { user: { select: { id: true, name: true, email: true } }, plan: true },
     orderBy: { createdAt: "desc" },
   });
   res.json(subs);
-};
+});
 
-export const subscribe = async (req: Request, res: Response) => {
+export const subscribe = asyncHandler(async (req: Request, res: Response) => {
   const { planId } = req.body;
   const userId = req.user!.userId;
 
@@ -50,12 +53,12 @@ export const subscribe = async (req: Request, res: Response) => {
   });
 
   res.status(201).json(subscription);
-};
+});
 
-export const getMySubscription = async (req: Request, res: Response) => {
+export const getMySubscription = asyncHandler(async (req: Request, res: Response) => {
   const subscription = await prisma.subscription.findFirst({
     where: { userId: req.user!.userId, status: "ACTIVE" },
     include: { plan: true },
   });
   res.json(subscription);
-};
+});
