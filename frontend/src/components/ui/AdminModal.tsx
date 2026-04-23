@@ -14,29 +14,32 @@ export default function AdminModal({ open, onClose, title, children }: Props) {
   return (
     <AnimatePresence>
       {open && (
-        <>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
             onClick={onClose}
           />
+          {/* Modal */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-lg max-h-[85vh] overflow-y-auto card-glass !p-0"
+            transition={{ duration: 0.25 }}
+            className="relative z-10 w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl"
           >
-            <div className="flex items-center justify-between p-4 border-b border-white/10">
-              <h3 className="text-lg font-bold">{title}</h3>
-              <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-white/10 transition-colors">
+            <div className="sticky top-0 flex items-center justify-between p-5 border-b border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 rounded-t-2xl">
+              <h3 className="text-lg font-semibold">{title}</h3>
+              <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-zinc-400 hover:text-zinc-700 dark:hover:text-white">
                 <X size={18} />
               </button>
             </div>
-            <div className="p-4">{children}</div>
+            <div className="p-5">{children}</div>
           </motion.div>
-        </>
+        </div>
       )}
     </AnimatePresence>
   );
