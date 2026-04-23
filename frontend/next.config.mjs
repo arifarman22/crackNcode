@@ -4,12 +4,11 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ["images.unsplash.com"],
+    domains: ["images.unsplash.com", "res.cloudinary.com", "placehold.co"],
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "res.cloudinary.com" },
+      { protocol: "https", hostname: "placehold.co" },
     ],
   },
   experimental: {

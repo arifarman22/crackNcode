@@ -74,33 +74,6 @@ async function seed() {
   }
   console.log(`✅ ${plans.length} plans seeded`);
 
-  // ===== SAMPLE ORDERS (for chart data) =====
-  await prisma.orderItem.deleteMany();
-  await prisma.order.deleteMany();
-  const statuses = ["PENDING", "PAID", "COMPLETED"] as const;
-  for (let i = 0; i < 15; i++) {
-    const monthsAgo = Math.floor(Math.random() * 6);
-    const date = new Date();
-    date.setMonth(date.getMonth() - monthsAgo);
-    date.setDate(Math.floor(Math.random() * 28) + 1);
-
-    const product = products[Math.floor(Math.random() * products.length)];
-    const qty = Math.floor(Math.random() * 3) + 1;
-
-    await prisma.order.create({
-      data: {
-        userId: i % 3 === 0 ? admin.id : demoUser.id,
-        total: product.price * qty,
-        status: statuses[Math.floor(Math.random() * statuses.length)],
-        createdAt: date,
-        items: {
-          create: { productId: product.id, quantity: qty, price: product.price },
-        },
-      },
-    });
-  }
-  console.log("✅ 15 sample orders seeded");
-
   console.log("\n🎉 Seed complete!");
   console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
   console.log("  Admin Login:  admin@crackncode.com / Admin@123");
