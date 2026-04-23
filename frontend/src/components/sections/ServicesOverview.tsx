@@ -25,7 +25,7 @@ export default function ServicesOverview() {
                 <item.icon size={20} className="text-white" />
               </div>
               <h3 className="text-base font-semibold mb-2 tracking-tight">{item.title}</h3>
-              <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed">{item.desc}</p>
+              <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">{item.desc}</p>
             </GlassCard>
           </AnimatedSection>
         ))}

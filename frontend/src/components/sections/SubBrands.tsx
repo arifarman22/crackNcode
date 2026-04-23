@@ -17,7 +17,7 @@ export default function SubBrands() {
               <GraduationCap size={24} className="text-white" />
             </div>
             <h3 className="text-xl font-semibold mb-2 tracking-tight">CrackNCode Academy</h3>
-            <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-6">
+            <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-6">
               Master in-demand digital skills with expert-led courses. From web development to marketing — learn at your own pace.
             </p>
             <Link href="/academy" className="inline-flex items-center gap-2 text-sm font-medium text-brand-600 dark:text-brand-400 group-hover:gap-3 transition-all duration-300">
@@ -33,7 +33,7 @@ export default function SubBrands() {
               <Crown size={24} className="text-white" />
             </div>
             <h3 className="text-xl font-semibold mb-2 tracking-tight">CrackNCode Premium</h3>
-            <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-6">
+            <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-6">
               Unlock exclusive content, 1-on-1 mentoring, and premium resources. Elevate your skills with our membership plans.
             </p>
             <Link href="/premium" className="inline-flex items-center gap-2 text-sm font-medium text-brand-600 dark:text-brand-400 group-hover:gap-3 transition-all duration-300">

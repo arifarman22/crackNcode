@@ -24,8 +24,8 @@ export default function RegisterPage() {
     if (!form.email) e.email = "Email is required";
     else if (!/\S+@\S+\.\S+/.test(form.email)) e.email = "Invalid email";
     if (!form.password) e.password = "Password is required";
-    else if (form.password.length < 6) e.password = "Password must be at least 6 characters";
-    else if (!/(?=.*[A-Z])(?=.*[0-9])/.test(form.password)) e.password = "Must contain uppercase and number";
+    else if (form.password.length < 8) e.password = "Password must be at least 8 characters";
+    else if (!/(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])/.test(form.password)) e.password = "Must contain uppercase, number, and special character";
     if (form.password !== form.confirm) e.confirm = "Passwords don't match";
     setErrors(e);
     return Object.keys(e).length === 0;
@@ -51,47 +51,47 @@ export default function RegisterPage() {
   };
 
   const inputClass = (field: string) =>
-    `w-full px-4 py-3 rounded-2xl bg-white/5 border text-white placeholder-gray-500 focus:outline-none transition-colors ${
-      errors[field] ? "border-red-500/50 focus:border-red-500" : "border-white/10 focus:border-brand-400/50"
+    `w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 transition-all duration-300 ${
+      errors[field] ? "border-red-400 focus:ring-red-500/20" : "border-zinc-200 dark:border-zinc-700 focus:border-brand-400"
     }`;
 
   return (
     <section className="min-h-[80vh] flex items-center justify-center px-4">
       <AnimatedSection className="w-full max-w-md">
         <GlassCard hover={false}>
-          <h1 className="text-2xl font-bold text-center mb-2">
+          <h1 className="text-2xl font-semibold text-center mb-2">
             Join <span className="gradient-text">CrackNCode</span>
           </h1>
-          <p className="text-center text-sm text-gray-500 mb-6">Create your account to get started</p>
+          <p className="text-center text-sm text-zinc-500 dark:text-zinc-400 mb-6">Create your account to get started</p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <input type="text" placeholder="Full Name" value={form.name} onChange={(e) => { setForm({ ...form, name: e.target.value }); setErrors({ ...errors, name: "" }); }} className={inputClass("name")} />
-              {errors.name && <p className="text-red-400 text-xs mt-1 ml-1">{errors.name}</p>}
+              {errors.name && <p className="text-red-500 text-xs mt-1 ml-1">{errors.name}</p>}
             </div>
             <div>
               <input type="email" placeholder="Email" value={form.email} onChange={(e) => { setForm({ ...form, email: e.target.value }); setErrors({ ...errors, email: "" }); }} className={inputClass("email")} />
-              {errors.email && <p className="text-red-400 text-xs mt-1 ml-1">{errors.email}</p>}
+              {errors.email && <p className="text-red-500 text-xs mt-1 ml-1">{errors.email}</p>}
             </div>
             <div className="relative">
               <input type={showPw ? "text" : "password"} placeholder="Password" value={form.password} onChange={(e) => { setForm({ ...form, password: e.target.value }); setErrors({ ...errors, password: "" }); }} className={inputClass("password")} />
-              <button type="button" onClick={() => setShowPw(!showPw)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white">
+              <button type="button" onClick={() => setShowPw(!showPw)} className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-700 dark:hover:text-white transition-colors">
                 {showPw ? <EyeOff size={18} /> : <Eye size={18} />}
               </button>
-              {errors.password && <p className="text-red-400 text-xs mt-1 ml-1">{errors.password}</p>}
+              {errors.password && <p className="text-red-500 text-xs mt-1 ml-1">{errors.password}</p>}
             </div>
             <div>
               <input type="password" placeholder="Confirm Password" value={form.confirm} onChange={(e) => { setForm({ ...form, confirm: e.target.value }); setErrors({ ...errors, confirm: "" }); }} className={inputClass("confirm")} />
-              {errors.confirm && <p className="text-red-400 text-xs mt-1 ml-1">{errors.confirm}</p>}
+              {errors.confirm && <p className="text-red-500 text-xs mt-1 ml-1">{errors.confirm}</p>}
             </div>
             <Button type="submit" className="w-full" disabled={loading}>
               {loading ? "Creating account..." : "Create Account"}
             </Button>
           </form>
 
-          <p className="text-center text-sm text-gray-400 mt-4">
+          <p className="text-center text-sm text-zinc-500 dark:text-zinc-400 mt-4">
             Already have an account?{" "}
-            <Link href="/auth/login" className="text-brand-400 hover:underline">Sign In</Link>
+            <Link href="/auth/login" className="text-brand-600 dark:text-brand-400 hover:underline">Sign In</Link>
           </p>
         </GlassCard>
       </AnimatedSection>

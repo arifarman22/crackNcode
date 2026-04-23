@@ -11,8 +11,8 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variants = {
   primary: "bg-brand-gradient text-white shadow-glow hover:shadow-glow-lg",
-  secondary: "border border-brand-400/30 text-brand-600 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-brand-500/10",
-  ghost: "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800",
+  secondary: "border border-brand-400/30 text-brand-700 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-brand-500/10",
+  ghost: "text-zinc-700 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800",
 };
 
 const sizes = {

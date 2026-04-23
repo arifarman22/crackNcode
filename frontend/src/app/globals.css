@@ -4,7 +4,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #18181b;
+  --foreground: #09090b;
 }
 
 .dark {
@@ -20,6 +20,13 @@
   body {
     @apply bg-background text-foreground transition-colors duration-500;
   }
+  /* Ensure all text is dark black in light mode */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-zinc-900 dark:text-zinc-100;
+  }
+  p {
+    @apply text-zinc-700 dark:text-zinc-300;
+  }
 }
 
 @layer components {
@@ -29,16 +36,22 @@
   .gradient-text {
     @apply bg-clip-text text-transparent bg-brand-gradient;
   }
+  .text-muted {
+    @apply text-zinc-600 dark:text-zinc-400;
+  }
+  .text-subtle {
+    @apply text-zinc-500 dark:text-zinc-500;
+  }
   .btn-primary {
     @apply px-6 py-3 rounded-xl bg-brand-gradient text-white font-medium
            shadow-glow hover:shadow-glow-lg transition-all duration-500 hover:-translate-y-0.5 active:translate-y-0;
   }
   .btn-secondary {
-    @apply px-6 py-3 rounded-xl border border-brand-400/30 text-brand-500 dark:text-brand-400 font-medium
+    @apply px-6 py-3 rounded-xl border border-brand-400/30 text-brand-600 dark:text-brand-400 font-medium
            hover:bg-brand-50 dark:hover:bg-brand-500/10 transition-all duration-500;
   }
   .card {
-    @apply rounded-2xl p-6 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800
+    @apply rounded-2xl p-6 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800
            shadow-soft dark:shadow-dark-soft transition-all duration-500;
   }
   .card-hover {

@@ -37,9 +37,9 @@ export default function FeaturedProducts() {
                 <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-900 via-transparent to-transparent" />
               </div>
               <div className="p-5 flex flex-col flex-1">
-                <span className="text-xs font-medium tracking-wider uppercase text-brand-500 dark:text-brand-400">{p.category}</span>
+                <span className="text-xs font-medium tracking-wider uppercase text-brand-600 dark:text-brand-400">{p.category}</span>
                 <h3 className="text-base font-semibold mt-1 mb-2 tracking-tight">{p.name}</h3>
-                <p className="text-zinc-500 dark:text-zinc-400 text-sm flex-1 leading-relaxed">{p.description}</p>
+                <p className="text-zinc-600 dark:text-zinc-400 text-sm flex-1 leading-relaxed">{p.description}</p>
                 <div className="flex items-center justify-between mt-4 pt-4 border-t border-zinc-100 dark:border-zinc-800">
                   <span className="text-lg font-semibold gradient-text">{formatPrice(p.price)}</span>
                   <Button size="sm" onClick={() => handleAdd(p)}>

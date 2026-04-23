@@ -39,7 +39,7 @@ export default function Hero() {
           <span className="gradient-text">Your Digital Empire.</span>
         </motion.h1>
 
-        <motion.p variants={fadeUp} className="text-lg sm:text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        <motion.p variants={fadeUp} className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
           Premium digital services, cutting-edge products, and world-class education — all under one roof.
         </motion.p>
 
@@ -61,7 +61,7 @@ export default function Hero() {
           ].map((s) => (
             <div key={s.label} className="text-center">
               <div className="text-2xl sm:text-3xl font-semibold tracking-tight gradient-text">{s.value}</div>
-              <div className="text-xs sm:text-sm text-zinc-400 mt-1">{s.label}</div>
+              <div className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">{s.label}</div>
             </div>
           ))}
         </motion.div>

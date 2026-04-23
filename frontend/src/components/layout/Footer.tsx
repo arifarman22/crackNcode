@@ -29,7 +29,7 @@ export default function Footer() {
             <Link href="/" className="text-lg font-semibold tracking-tight gradient-text">
               CrackNCode
             </Link>
-            <p className="mt-3 text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+            <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Building digital excellence. Your partner in growth, design, and technology.
             </p>
           </div>
@@ -39,7 +39,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {links.map((l) => (
                   <li key={l.label}>
-                    <Link href={l.href} className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors duration-300">
+                    <Link href={l.href} className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors duration-300">
                       {l.label}
                     </Link>
                   </li>

@@ -35,7 +35,7 @@ export default function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="px-3 py-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-300"
+                className="px-3 py-2 text-sm text-zinc-700 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-300"
               >
                 {l.label}
               </Link>
@@ -49,11 +49,11 @@ export default function Navbar() {
               </Link>
             )}
 
-            <button onClick={toggle} className="p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-zinc-500">
+            <button onClick={toggle} className="p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-zinc-700 dark:text-zinc-400">
               {dark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
 
-            <Link href="/cart" className="relative p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-zinc-500">
+            <Link href="/cart" className="relative p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-zinc-700 dark:text-zinc-400">
               <ShoppingCart size={18} />
               {items.length > 0 && (
                 <span className="absolute -top-0.5 -right-0.5 w-4.5 h-4.5 bg-brand-500 rounded-full text-[10px] flex items-center justify-center text-white font-medium">
@@ -96,7 +96,7 @@ export default function Navbar() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="block px-4 py-2.5 rounded-xl text-sm text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                  className="block px-4 py-2.5 rounded-xl text-sm text-zinc-700 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white transition-colors"
                 >
                   {l.label}
                 </Link>

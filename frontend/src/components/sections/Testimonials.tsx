@@ -18,7 +18,7 @@ export default function Testimonials() {
                   <Star key={j} size={14} className="fill-amber-400 text-amber-400" />
                 ))}
               </div>
-              <p className="text-zinc-600 dark:text-zinc-300 text-sm leading-relaxed flex-1 mb-6">
+              <p className="text-zinc-700 dark:text-zinc-300 text-sm leading-relaxed flex-1 mb-6">
                 &ldquo;{t.content}&rdquo;
               </p>
               <div className="flex items-center gap-3 pt-4 border-t border-zinc-100 dark:border-zinc-800">
@@ -27,7 +27,7 @@ export default function Testimonials() {
                 </div>
                 <div>
                   <div className="text-sm font-medium">{t.name}</div>
-                  <div className="text-xs text-zinc-400">{t.role}</div>
+                  <div className="text-xs text-zinc-500 dark:text-zinc-400">{t.role}</div>
                 </div>
               </div>
             </GlassCard>

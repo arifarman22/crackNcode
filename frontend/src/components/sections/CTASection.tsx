@@ -13,7 +13,7 @@ export default function CTASection() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight mb-4">
               Ready to <span className="gradient-text">Transform</span> Your Business?
             </h2>
-            <p className="text-zinc-500 dark:text-zinc-400 max-w-xl mx-auto mb-8 text-lg leading-relaxed">
+            <p className="text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto mb-8 text-lg leading-relaxed">
               Join 500+ businesses that trust CrackNCode for their digital growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -16,7 +16,7 @@ export default function SectionHeading({ tag, title, description }: Props) {
       )}
       <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight mb-4">{title}</h2>
       {description && (
-        <p className="text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto text-lg leading-relaxed">{description}</p>
+        <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto text-lg leading-relaxed">{description}</p>
       )}
     </AnimatedSection>
   );

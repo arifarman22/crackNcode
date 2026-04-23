@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/store";
 import { api } from "@/lib/utils";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -16,7 +15,6 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const setAuth = useAuthStore((s) => s.setAuth);
-  const router = useRouter();
 
   const validate = () => {
     const e: Record<string, string> = {};
@@ -38,8 +36,7 @@ export default function LoginPage() {
       });
       setAuth(res.user, res.token);
       toast.success("Welcome back!");
-      const dest = res.user.role === "ADMIN" ? "/admin" : "/dashboard";
-      window.location.href = dest;
+      window.location.href = res.user.role === "ADMIN" ? "/admin" : "/dashboard";
     } catch (err: any) {
       toast.error(err.message || "Invalid credentials");
     } finally {
@@ -48,18 +45,18 @@ export default function LoginPage() {
   };
 
   const inputClass = (field: string) =>
-    `w-full px-4 py-3 rounded-2xl bg-white/5 border text-white placeholder-gray-500 focus:outline-none transition-colors ${
-      errors[field] ? "border-red-500/50 focus:border-red-500" : "border-white/10 focus:border-brand-400/50"
+    `w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 transition-all duration-300 ${
+      errors[field] ? "border-red-400 focus:ring-red-500/20" : "border-zinc-200 dark:border-zinc-700 focus:border-brand-400"
     }`;
 
   return (
     <section className="min-h-[80vh] flex items-center justify-center px-4">
       <AnimatedSection className="w-full max-w-md">
         <GlassCard hover={false}>
-          <h1 className="text-2xl font-bold text-center mb-2">
+          <h1 className="text-2xl font-semibold text-center mb-2">
             Sign In to <span className="gradient-text">CrackNCode</span>
           </h1>
-          <p className="text-center text-sm text-gray-500 mb-6">Enter your credentials to continue</p>
+          <p className="text-center text-sm text-zinc-500 dark:text-zinc-400 mb-6">Enter your credentials to continue</p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
@@ -70,7 +67,7 @@ export default function LoginPage() {
                 onChange={(e) => { setForm({ ...form, email: e.target.value }); setErrors({ ...errors, email: "" }); }}
                 className={inputClass("email")}
               />
-              {errors.email && <p className="text-red-400 text-xs mt-1 ml-1">{errors.email}</p>}
+              {errors.email && <p className="text-red-500 text-xs mt-1 ml-1">{errors.email}</p>}
             </div>
 
             <div className="relative">
@@ -81,10 +78,10 @@ export default function LoginPage() {
                 onChange={(e) => { setForm({ ...form, password: e.target.value }); setErrors({ ...errors, password: "" }); }}
                 className={inputClass("password")}
               />
-              <button type="button" onClick={() => setShowPw(!showPw)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white">
+              <button type="button" onClick={() => setShowPw(!showPw)} className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-700 dark:hover:text-white transition-colors">
                 {showPw ? <EyeOff size={18} /> : <Eye size={18} />}
               </button>
-              {errors.password && <p className="text-red-400 text-xs mt-1 ml-1">{errors.password}</p>}
+              {errors.password && <p className="text-red-500 text-xs mt-1 ml-1">{errors.password}</p>}
             </div>
 
             <Button type="submit" className="w-full" disabled={loading}>
@@ -92,10 +89,9 @@ export default function LoginPage() {
             </Button>
           </form>
 
-
-          <p className="text-center text-sm text-gray-400 mt-4">
+          <p className="text-center text-sm text-zinc-500 dark:text-zinc-400 mt-4">
             Don&apos;t have an account?{" "}
-            <Link href="/auth/register" className="text-brand-400 hover:underline">Sign Up</Link>
+            <Link href="/auth/register" className="text-brand-600 dark:text-brand-400 hover:underline">Sign Up</Link>
           </p>
         </GlassCard>
       </AnimatedSection>
