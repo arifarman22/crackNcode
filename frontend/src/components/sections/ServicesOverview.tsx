@@ -61,7 +61,7 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.7, delay: i * 0.12, ease: "easeOut" },
+    transition: { duration: 0.7, delay: i * 0.12 },
   }),
 };
 
