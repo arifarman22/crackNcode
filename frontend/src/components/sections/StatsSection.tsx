@@ -4,10 +4,10 @@ import { motion, useInView } from "framer-motion";
 import { Users, FolderKanban, Award, Clock } from "lucide-react";
 
 const stats = [
-  { icon: Users, value: 500, suffix: "+", label: "Happy Clients", color: "text-brand-500" },
-  { icon: FolderKanban, value: 1200, suffix: "+", label: "Projects Delivered", color: "text-cyan-500" },
-  { icon: Award, value: 99, suffix: "%", label: "Client Satisfaction", color: "text-emerald-500" },
-  { icon: Clock, value: 5, suffix: "+", label: "Years Experience", color: "text-amber-500" },
+  { icon: Users, value: 50, suffix: "+", label: "Happy Clients", color: "text-brand-500" },
+  { icon: FolderKanban, value: 120, suffix: "+", label: "Projects Delivered", color: "text-cyan-500" },
+  { icon: Award, value: 98, suffix: "%", label: "Client Satisfaction", color: "text-emerald-500" },
+  { icon: Clock, value: 3, suffix: "+", label: "Years Experience", color: "text-amber-500" },
 ];
 
 function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {

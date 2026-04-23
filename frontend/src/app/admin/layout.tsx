@@ -6,7 +6,7 @@ import { useAuthStore } from "@/store";
 import { useHydrated } from "@/hooks/useHydrated";
 import {
   LayoutDashboard, Users, Package, Briefcase, GraduationCap,
-  ShoppingCart, Crown, ChevronLeft, ChevronRight, LogOut, Home, Menu, X,
+  ShoppingCart, Crown, ChevronLeft, ChevronRight, LogOut, Home, Menu, X, MessageSquare,
 } from "lucide-react";
 
 const navItems = [
@@ -17,6 +17,7 @@ const navItems = [
   { href: "/admin/courses", label: "Courses", icon: GraduationCap },
   { href: "/admin/orders", label: "Orders", icon: ShoppingCart },
   { href: "/admin/subscriptions", label: "Subscriptions", icon: Crown },
+  { href: "/admin/reviews", label: "Reviews", icon: MessageSquare },
 ];
 
 const isAdminRole = (role?: string) => role === "ADMIN" || role === "admin";

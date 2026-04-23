@@ -55,9 +55,9 @@ export default function Hero() {
         {/* Stats */}
         <motion.div variants={fadeUp} className="mt-20 grid grid-cols-3 gap-8 max-w-md mx-auto">
           {[
-            { value: "500+", label: "Clients" },
-            { value: "1.2K+", label: "Projects" },
-            { value: "99%", label: "Satisfaction" },
+            { value: "50+", label: "Clients" },
+            { value: "120+", label: "Projects" },
+            { value: "98%", label: "Satisfaction" },
           ].map((s) => (
             <div key={s.label} className="text-center">
               <div className="text-2xl sm:text-3xl font-semibold tracking-tight gradient-text">{s.value}</div>

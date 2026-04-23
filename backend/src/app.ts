@@ -17,6 +17,7 @@ import subscriptionRoutes from "./routes/subscription";
 import adminRoutes from "./routes/admin";
 import paymentRoutes from "./routes/payment";
 import uploadRoutes from "./routes/upload";
+import reviewRoutes from "./routes/review";
 
 const app = express();
 
@@ -140,6 +141,7 @@ app.use("/api/subscriptions", subscriptionRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/payments", writeLimiter, paymentRoutes);
 app.use("/api/upload", writeLimiter, uploadRoutes);
+app.use("/api/reviews", reviewRoutes);
 
 // 404
 app.use((_req, res) => {

@@ -14,7 +14,7 @@ export default function CTASection() {
               Ready to <span className="gradient-text">Transform</span> Your Business?
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto mb-8 text-lg leading-relaxed">
-              Join 500+ businesses that trust CrackNCode for their digital growth.
+              Join 50+ businesses that trust CrackNCode for their digital growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
