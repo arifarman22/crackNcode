@@ -22,10 +22,10 @@ export default function Providers({ children }: { children: ReactNode }) {
       <AnimatePresence mode="wait">
         <motion.main
           key={pathname}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
           className="min-h-screen pt-16"
         >
           {children}
@@ -37,10 +37,11 @@ export default function Providers({ children }: { children: ReactNode }) {
         position="bottom-right"
         toastOptions={{
           style: {
-            background: "#1a1a2e",
-            color: "#fff",
-            border: "1px solid rgba(255,255,255,0.1)",
-            borderRadius: "1rem",
+            background: dark ? "#18181b" : "#ffffff",
+            color: dark ? "#fafafa" : "#18181b",
+            border: dark ? "1px solid rgba(255,255,255,0.08)" : "1px solid #e4e4e7",
+            borderRadius: "0.75rem",
+            fontSize: "0.875rem",
           },
         }}
       />

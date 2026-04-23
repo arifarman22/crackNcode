@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import { Nunito_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/layout/Providers";
 import { FacebookPixel, GoogleTagManager, GTMNoScript } from "@/components/layout/Tracking";
 
-const nunito = Nunito_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-nunito",
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -36,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <GoogleTagManager />
         <FacebookPixel />
       </head>
-      <body className={`${nunito.variable} font-sans antialiased font-light`}>
+      <body className={`${inter.variable} font-sans antialiased`}>
         <GTMNoScript />
         <Providers>{children}</Providers>
       </body>

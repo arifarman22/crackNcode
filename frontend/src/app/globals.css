@@ -4,74 +4,72 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0a0a0f;
+  --foreground: #18181b;
 }
 
 .dark {
-  --background: #0a0a0f;
-  --foreground: #f0f0f0;
+  --background: #09090b;
+  --foreground: #fafafa;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
   }
   body {
-    @apply bg-background text-foreground transition-colors duration-300 font-light;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold;
-  }
-  p {
-    @apply font-light;
+    @apply bg-background text-foreground transition-colors duration-500;
   }
 }
 
 @layer components {
   .glass {
-    @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-glass;
-  }
-  .glass-dark {
-    @apply bg-black/20 backdrop-blur-xl border border-white/10 shadow-glass;
+    @apply bg-white/70 dark:bg-zinc-900/70 backdrop-blur-2xl border border-zinc-200/50 dark:border-white/[0.08];
   }
   .gradient-text {
     @apply bg-clip-text text-transparent bg-brand-gradient;
   }
   .btn-primary {
-    @apply px-6 py-3 rounded-2xl bg-brand-gradient text-white font-medium
-           hover:shadow-glow transition-all duration-300 hover:scale-105 active:scale-95;
+    @apply px-6 py-3 rounded-xl bg-brand-gradient text-white font-medium
+           shadow-glow hover:shadow-glow-lg transition-all duration-500 hover:-translate-y-0.5 active:translate-y-0;
   }
   .btn-secondary {
-    @apply px-6 py-3 rounded-2xl border border-brand-400/50 text-brand-400 font-medium
-           hover:bg-brand-400/10 transition-all duration-300;
+    @apply px-6 py-3 rounded-xl border border-brand-400/30 text-brand-500 dark:text-brand-400 font-medium
+           hover:bg-brand-50 dark:hover:bg-brand-500/10 transition-all duration-500;
+  }
+  .card {
+    @apply rounded-2xl p-6 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800
+           shadow-soft dark:shadow-dark-soft transition-all duration-500;
+  }
+  .card-hover {
+    @apply card hover:shadow-soft-lg dark:hover:shadow-glow hover:-translate-y-1
+           hover:border-brand-200 dark:hover:border-brand-500/30;
   }
   .card-glass {
-    @apply rounded-3xl p-6 bg-white/5 backdrop-blur-xl border border-white/10
-           shadow-glass hover:border-brand-400/30 transition-all duration-300;
+    @apply rounded-2xl p-6 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-xl
+           border border-zinc-200/50 dark:border-white/[0.08]
+           shadow-soft dark:shadow-dark-soft transition-all duration-500;
   }
   .section-padding {
     @apply px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 max-w-7xl mx-auto;
   }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
 ::selection {
-  background: rgba(107, 0, 255, 0.3);
-  color: #fff;
+  background: rgba(99, 102, 241, 0.2);
+  color: inherit;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a0f;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #6b00ff;
-  border-radius: 4px;
+  background: #a5b4fc;
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #4338ca;
 }

@@ -12,10 +12,11 @@ interface Props {
 export default function GlassCard({ children, className, hover = true }: Props) {
   return (
     <motion.div
-      whileHover={hover ? { y: -5, scale: 1.02 } : undefined}
+      whileHover={hover ? { y: -6, transition: { duration: 0.4, ease: [0.25, 0.4, 0.25, 1] } } : undefined}
       className={cn(
-        "rounded-3xl p-6 bg-white/5 backdrop-blur-xl border border-white/10 shadow-glass transition-all duration-300",
-        hover && "hover:border-brand-400/30 hover:shadow-glow",
+        "rounded-2xl p-6 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800",
+        "shadow-soft dark:shadow-dark-soft transition-all duration-500",
+        hover && "hover:shadow-soft-lg dark:hover:shadow-glow hover:border-brand-200 dark:hover:border-brand-500/30",
         className
       )}
     >

@@ -22,28 +22,30 @@ export default function FeaturedProducts() {
   return (
     <section className="section-padding">
       <SectionHeading tag="Shop" title="Featured Products" description="Digital tools and packages to accelerate your growth." />
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {products.slice(0, 3).map((p, i) => (
           <AnimatedSection key={p.id} delay={i * 0.1}>
-            <GlassCard className="flex flex-col h-full">
-              <div className="relative w-full h-44 rounded-2xl overflow-hidden mb-4">
+            <GlassCard className="flex flex-col h-full group overflow-hidden !p-0">
+              <div className="relative w-full h-48 overflow-hidden">
                 <Image
                   src={p.image}
                   alt={p.name}
                   fill
-                  className="object-cover transition-transform duration-500 hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-900 via-transparent to-transparent" />
               </div>
-              <span className="text-xs text-brand-400 uppercase tracking-wider font-medium">{p.category}</span>
-              <h3 className="text-lg font-semibold mt-1 mb-2">{p.name}</h3>
-              <p className="text-gray-400 text-sm flex-1 font-light">{p.description}</p>
-              <div className="flex items-center justify-between mt-4">
-                <span className="text-xl font-semibold gradient-text">{formatPrice(p.price)}</span>
-                <Button size="sm" onClick={() => handleAdd(p)}>
-                  <ShoppingCart size={16} /> Add
-                </Button>
+              <div className="p-5 flex flex-col flex-1">
+                <span className="text-xs font-medium tracking-wider uppercase text-brand-500 dark:text-brand-400">{p.category}</span>
+                <h3 className="text-base font-semibold mt-1 mb-2 tracking-tight">{p.name}</h3>
+                <p className="text-zinc-500 dark:text-zinc-400 text-sm flex-1 leading-relaxed">{p.description}</p>
+                <div className="flex items-center justify-between mt-4 pt-4 border-t border-zinc-100 dark:border-zinc-800">
+                  <span className="text-lg font-semibold gradient-text">{formatPrice(p.price)}</span>
+                  <Button size="sm" onClick={() => handleAdd(p)}>
+                    <ShoppingCart size={14} /> Add
+                  </Button>
+                </div>
               </div>
             </GlassCard>
           </AnimatedSection>
