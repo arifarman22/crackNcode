@@ -7,7 +7,6 @@ import FeaturedProducts from "@/components/sections/FeaturedProducts";
 import SubBrands from "@/components/sections/SubBrands";
 import Testimonials from "@/components/sections/Testimonials";
 import FAQ from "@/components/sections/FAQ";
-import Newsletter from "@/components/sections/Newsletter";
 import CTASection from "@/components/sections/CTASection";
 
 export default function Home() {
@@ -22,7 +21,6 @@ export default function Home() {
       <SubBrands />
       <Testimonials />
       <FAQ />
-      <Newsletter />
       <CTASection />
     </>
   );
